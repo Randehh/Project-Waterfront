@@ -1,0 +1,17 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-Project_Waterfront.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\Project_WaterfrontEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\Project_Waterfront.cpp.obj"
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\Project_WaterfrontCharacter.cpp.obj"
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\Project_WaterfrontGameMode.cpp.obj"
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\Project_Waterfront.init.gen.cpp.obj"
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\Project_WaterfrontCharacter.gen.cpp.obj"
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\Project_WaterfrontGameMode.gen.cpp.obj"
+"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\PCLaunch.rc.res"
+/OUT:"F:\Projects\Project_Waterfront\Project_Waterfront\Intermediate\Build\Win64\UE4Editor\Development\Project_Waterfront\UE4Editor-Project_Waterfront.lib"

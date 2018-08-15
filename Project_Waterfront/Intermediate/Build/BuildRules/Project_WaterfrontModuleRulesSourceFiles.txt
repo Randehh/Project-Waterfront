@@ -1,0 +1,3 @@
+F:\Projects\Project_Waterfront\Project_Waterfront\Source\Project_Waterfront\Project_Waterfront.Build.cs
+F:\Projects\Project_Waterfront\Project_Waterfront\Source\Project_Waterfront.Target.cs
+F:\Projects\Project_Waterfront\Project_Waterfront\Source\Project_WaterfrontEditor.Target.cs

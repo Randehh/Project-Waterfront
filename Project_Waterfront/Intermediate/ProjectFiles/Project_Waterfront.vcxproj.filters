@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\Project_Waterfront.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{4B85CF24-CB1F-4662-9836-5178A3D8DE24}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Project_Waterfront.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\Project_WaterfrontEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{37404D8F-1B1C-443F-984A-52B08386F181}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\Project_Waterfront">
+			<UniqueIdentifier>{FF7FB1AA-6750-49BA-950E-05075913F21E}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Project_Waterfront\Project_Waterfront.Build.cs">
+			<Filter>Source\Project_Waterfront</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\Project_Waterfront\Project_Waterfront.cpp">
+			<Filter>Source\Project_Waterfront</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Project_Waterfront\Project_Waterfront.h">
+			<Filter>Source\Project_Waterfront</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Project_Waterfront\Project_WaterfrontCharacter.cpp">
+			<Filter>Source\Project_Waterfront</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Project_Waterfront\Project_WaterfrontCharacter.h">
+			<Filter>Source\Project_Waterfront</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Project_Waterfront\Project_WaterfrontGameMode.cpp">
+			<Filter>Source\Project_Waterfront</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Project_Waterfront\Project_WaterfrontGameMode.h">
+			<Filter>Source\Project_Waterfront</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
