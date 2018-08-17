@@ -17,6 +17,9 @@ public:
 	AItemBase();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString displayName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	uint8 itemCountOnPickup = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

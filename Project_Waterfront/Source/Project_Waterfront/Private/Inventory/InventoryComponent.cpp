@@ -9,7 +9,6 @@ UInventoryComponent::UInventoryComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = false;
 
-	// ...
 }
 
 
@@ -17,18 +16,15 @@ UInventoryComponent::UInventoryComponent()
 void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
-	
 }
 
 void UInventoryComponent::AddItem(AItemBase * item) {
 	int amount = item->itemCountOnPickup;
-	for (int i = 0; i < itemArray.Num(); i++) {
-		FInventorySlot itemSlot = itemArray[i];
-		if (!itemSlot.itemType.Equals(item->GetName())) continue;
+	TArray<UInventorySlot*> itemSlots = GetItemSlotsOfType(item);
+	for (int i = 0; i < itemSlots.Num(); i++) {
+		UInventorySlot* itemSlot = itemSlots[i];
 
-		int currentStackSize = itemSlot.stackSize;
+		int currentStackSize = itemSlot->stackSize;
 		currentStackSize += amount;
 		if (currentStackSize > item->stackSize) {
 			amount = currentStackSize - item->stackSize;
@@ -37,8 +33,7 @@ void UInventoryComponent::AddItem(AItemBase * item) {
 			amount = 0;
 		}
 
-		itemSlot.stackSize = currentStackSize;
-		itemArray[i] = itemSlot;
+		itemSlot->stackSize = currentStackSize;
 	}
 
 	while (amount > 0) {
@@ -50,14 +45,61 @@ void UInventoryComponent::AddItem(AItemBase * item) {
 			amount = 0;
 		}
 
-		FInventorySlot itemSlot;
-		itemSlot.itemType = item->GetName();
-		itemSlot.stackSize = stackAmount;
+		UInventorySlot* itemSlot = NewObject<UInventorySlot>();
+		itemSlot->itemType = item;
+		itemSlot->stackSize = stackAmount;
 		itemArray.Add(itemSlot);
 	}
 }
 
-void UInventoryComponent::RemoveItem(AItemBase* item) {
+bool UInventoryComponent::RemoveItemFromSlot(UInventorySlot* item, int amount) {
+	if (item->stackSize < amount) {
+		return false;
+	}
 
+	item->stackSize -= amount;
+	if (item->stackSize <= 0) {
+		itemArray.Remove(item);
+	}
+	return true;
+}
+
+bool UInventoryComponent::RemoveItem(AItemBase* item, int amount) {
+	int inInventory = GetItemCount(item);
+	if (inInventory < amount) return false;
+
+	TArray<UInventorySlot*> itemSlots = GetItemSlotsOfType(item);
+	for (int i = itemSlots.Num() - 1; i >= 0; i++) {
+		UInventorySlot* itemSlot = itemSlots[i];
+		int toRemove = FMath::Clamp<int>(amount, 0, itemSlot->stackSize);
+		RemoveItemFromSlot(itemSlot, toRemove);
+		amount -= toRemove;
+		if (amount <= 0) break;
+	}
+
+	return false;
+}
+
+int UInventoryComponent::GetItemCount(AItemBase* item) {
+	TArray<UInventorySlot*> itemSlots = GetItemSlotsOfType(item);
+	int totalCount = 0;
+	for (int i = 0; i < itemSlots.Num(); i++) {
+		UInventorySlot* itemSlot = itemSlots[i];
+		totalCount += itemSlot->stackSize;
+	}
+	return totalCount;
+}
+
+TArray<UInventorySlot*> UInventoryComponent::GetItemSlotsOfType(AItemBase* item) {
+	TArray<UInventorySlot*> itemsOfType;
+	for (int i = 0; i < itemArray.Num(); i++) {
+		UInventorySlot* itemSlot = itemArray[i];
+		if (itemSlot->itemType == item) continue;
+		itemsOfType.Add(itemSlot);
+	}
+	return itemsOfType;
+}
+
+void UInventoryComponent::AttachToInterface() {
 }
 
