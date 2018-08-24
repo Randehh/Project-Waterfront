@@ -88,7 +88,7 @@ int UInventoryComponent::GetItemCount(AItemBase* item) {
 		totalCount += itemSlot->stackSize;
 	}
 	return totalCount;
-}
+}		
 
 TArray<UInventorySlot*> UInventoryComponent::GetItemSlotsOfType(AItemBase* item) {
 	TArray<UInventorySlot*> itemsOfType;
@@ -98,8 +98,5 @@ TArray<UInventorySlot*> UInventoryComponent::GetItemSlotsOfType(AItemBase* item)
 		itemsOfType.Add(itemSlot);
 	}
 	return itemsOfType;
-}
-
-void UInventoryComponent::AttachToInterface() {
 }
 

@@ -23,7 +23,7 @@ protected:
 
 public:
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, Category = "Inventory")
 	TArray<UInventorySlot*> itemArray;
 	
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
@@ -40,8 +40,5 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	TArray<UInventorySlot*> GetItemSlotsOfType(AItemBase* item);
-
-	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	void AttachToInterface();
 
 };

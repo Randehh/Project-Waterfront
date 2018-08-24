@@ -8,7 +8,7 @@
 #include "ItemBase.generated.h"
 
 UCLASS()
-class PROJECT_WATERFRONT_API AItemBase : public AActor
+class AItemBase : public AActor
 {
 	GENERATED_BODY()
 	
